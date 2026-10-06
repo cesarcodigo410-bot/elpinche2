@@ -241,7 +241,7 @@ function boom(x,y){for(let i=0;i<22;i++)P.push({x,y,vx:(Math.random()-.5)*9,vy:-
 (function loop(){fc.clearRect(0,0,fx.width,fx.height);P=P.filter(p=>p.l-->0);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;fc.globalAlpha=p.l/60;fc.fillStyle=p.c;fc.fillRect(p.x,p.y,p.r+3,p.r+5)});requestAnimationFrame(loop)})();
 document.addEventListener('pointerdown',e=>{if(e.target.closest('button,.tile,.opt,.btn,.lk,a,#vb b')){boom(e.clientX,e.clientY);sfx()}});
 function go(id){$$('.v').forEach(v=>v.classList.toggle('on',v.id==id));$('#back').style.display=id=='home'?'none':'block';scrollTo(0,0);if(id=='reservas')R.s=0,R.d={},draw()}
-const L=[{n:'El Pinche — Plaza Obelisco',a:'16 Calle 1-01 Zona 10 Centro Comercial Plaza Obelisco, Local L-16',t:'+502 2278 9009',h:'Lun–Dom 7:00–22:00'},{n:'El Pinche — Sucursal 2',a:'Dirección completa, ciudad',t:'+502 0000 0000',h:'Lun–Sáb 11:00–23:00'}];
+const L=[{n:'El Pinche — Plaza Obelisco',a:'16 Calle 1-01 Zona 10 Centro Comercial Plaza Obelisco, Local L-16',t:'+502 2278 9009',h:'Lun–Dom 7:00–22:00'},{n:'El Pinche — Concepción',a:'Km. 15.5 Carretera a El Salvador, Santa Catarina Pinula, Centro Comercial Calle Real Local 18',t:'+502 6664 3502',h:'Lun–Sáb 11:00–23:00'}];
 $('#locs').innerHTML=L.map(l=>{const q=encodeURIComponent(l.a);return`<div class="loc"><h3>${l.n}</h3><p>${l.a}</p><p><a href="tel:${l.t.replace(/ /g,'')}">${l.t}</a></p><p>${l.h}</p><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank">Maps</a><a href="https://waze.com/ul?q=${q}" target="_blank">Waze</a></div>`}).join('');
 const R={s:0,d:{}},Z=['Terraza','Salón','Barra'],H=['12:00','13:00','14:00','15:00','19:00','20:00','21:00'];
 function pick(k,v){R.d[k]=v;draw()}
