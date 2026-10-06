@@ -173,7 +173,7 @@ body{padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom,0px))}
 body,input,.ph,.loc p{font-family:var(--f-t)}
 .d,#top div,#ht h1{font-family:var(--f-d)}
 /* fondo de puntos animado (solo en Ubicaciones) */
-#dots{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,#1f5aa8 0%,#173d80 36%,#10285c 70%,#0c1d45 100%);opacity:1}
+#dots{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:linear-gradient(180deg,#1a4d92 0%,#133568 36%,#0d2250 70%,#091738 100%);opacity:1}
 #dots i,#dots .sp i{position:absolute;inset:-60px;display:block}
 #dots .a{background:radial-gradient(circle,rgba(110,175,240,.38) 2.4px,transparent 3px) 0 0/14px 14px;animation:dr1 14s linear infinite;-webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.3));mask-image:linear-gradient(#000,rgba(0,0,0,.3))}
 #dots .b{background:radial-gradient(circle,rgba(140,195,255,.16) 3.2px,transparent 3.8px) 7px 7px/28px 28px;animation:dr2 28s linear infinite}
@@ -254,6 +254,20 @@ input:focus{outline:0;border-color:var(--y);box-shadow:0 0 0 3px rgba(239,201,40
 @media(hover:hover){.tile:hover,.btn:hover,.opt:hover,.chips button:hover,.sucs button:hover,.soc a:hover,.cb:hover,.greset:hover,.gback:hover{transform:scale(1.04)}}
 .tile:active,.btn:active,.opt:active,.chips button:active,.sucs button:active,.cb:active,.greset:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){#rb.fx,.sdet{animation:none!important}}
+
+/* ===== v8: audio solo en juego, botones legibles, fondo más oscuro, banner en video ===== */
+:root{--bk:#10214d}
+.bn video{display:block;width:100%;height:100%;object-fit:cover;background:var(--mr)}
+.tile{background:rgba(14,19,56,.94);border-color:color-mix(in srgb,var(--c) 85%,transparent)}
+.tile:hover{background:color-mix(in srgb,var(--c) 22%,#0e1338);border-color:var(--c)}
+.opt{background:rgba(14,19,56,.94);border-color:rgba(255,255,255,.42);color:#fff}
+.chips button{background:rgba(14,19,56,.94);border-color:rgba(255,255,255,.42);color:#fff}
+.sucs button{background:rgba(14,19,56,.94);border-color:rgba(255,255,255,.42);color:#fff}
+#back,.gback,.gmute{background:rgba(10,14,40,.96);color:#fff;border-color:rgba(239,201,40,.7)}
+.greset{background:rgba(10,14,40,.92);border-color:rgba(243,230,211,.6);color:#fff}
+.lmc .acts a.o{background:rgba(10,14,40,.92)}
+input{background:rgba(10,14,40,.88);border-color:rgba(255,255,255,.42);color:#fff}
+input::placeholder{color:rgba(243,230,211,.78)}
 </style></head><body>
 <div id="top"><div>🌮 Martes de tacos 2x1 · Margarita de la casa · Reserva tu terraza · 🌮 Martes de tacos 2x1 · Margarita de la casa · Reserva tu terraza</div></div>
 <button id="back" onclick="go('home')">← Inicio</button>
@@ -285,8 +299,8 @@ input:focus{outline:0;border-color:var(--y);box-shadow:0 0 0 3px rgba(239,201,40
   <div class="tile" style="--c:var(--pk)" onclick="go('reservas')">Reservar mesa</div>
  </div>
 <i class="px" data-sy=".22" style="--w:22px;left:46%;bottom:-6px"><b class="i-spark"></b></i></div>
-<!-- BANNER WEB: 1200×400 px (3:1; zona segura central 800×400 para móvil). Sustituye assets/banner-ejemplo.gif -->
- <div class="bn"><a data-link="banner" href="https://wa.me/50241686918" target="_blank" rel="noopener"><img src="assets/Banner.mp4" alt="Banner publicitario El Pinche"></a></div>
+<!-- BANNER WEB: 1200×400 px (3:1; zona segura central 800×400 para móvil). Video local: assets/Banner.mp4 -->
+ <div class="bn"><a data-link="banner" href="https://wa.me/50241686918" target="_blank" rel="noopener"><video src="assets/Banner.mp4" autoplay muted loop playsinline preload="auto" aria-label="Banner publicitario El Pinche"></video></a></div>
 <div class="sg"><i class="px ang" data-sy=".08" data-rot=".015" style="--w:clamp(104px,30vw,190px);right:4%;top:-24px"><b class="i-angel"></b></i>
 <h2 class="d" style="margin-left:16px">Síguenos</h2>
  <div class="soc">
@@ -295,7 +309,7 @@ input:focus{outline:0;border-color:var(--y);box-shadow:0 0 0 3px rgba(239,201,40
   <a style="--c:var(--cr)" data-link="tiktok" aria-label="TikTok" title="TikTok" href="https://tiktok.com/@elpinche" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/></svg></a>
  </div>
 <i class="px" data-sy=".26" style="--w:18px;left:52%;top:26px"><b class="i-spark"></b></i></div>
-<div class="drive"><h2 class="d go-t" style="margin-left:16px">¡Vamos a El Pinche!</h2><p class="go-s">Toca el vocho · juega y suma puntos sin parar</p><i class="px beetle" data-sx=".25" data-sy=".05" style="--w:clamp(150px,26vw,280px);left:34%;bottom:6px"><b class="i-car" role="button" tabindex="0" aria-label="Vamos a El Pinche: jugar" onclick="go('juego')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('juego')}"></b></i><i class="px" data-sy=".12" style="--w:clamp(60px,12vw,110px);right:8%;top:6px;opacity:.5"><b class="i-cloud"></b></i></div>
+<div class="drive"><h2 class="d go-t" style="margin-left:16px">¡Vamos a El Pinche!</h2><p class="go-s">Toca el vocho · juega y suma puntos sin parar</p><i class="px beetle" data-sx=".25" data-sy=".05" style="--w:clamp(150px,26vw,280px);left:34%;bottom:6px"><b class="i-car" role="button" tabindex="0" aria-label="Vamos a El Pinche: jugar" onclick="PincheGame.audioStart();go('juego')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();PincheGame.audioStart();go('juego')}"></b></i><i class="px" data-sy=".12" style="--w:clamp(60px,12vw,110px);right:8%;top:6px;opacity:.5"><b class="i-cloud"></b></i></div>
 </div>
 </section>
 
@@ -348,8 +362,9 @@ const LOC=[
 ['Paulinos','Paulinos Parque Comercial, zona 9 Quetzaltenango','']
 ];
 document.querySelectorAll('[data-link]').forEach(a=>{const u=LINKS[a.dataset.link];u?a.href=u:a.removeAttribute('href')});
+document.querySelectorAll('.bn video').forEach(v=>{v.muted=true;v.defaultMuted=true;const p=v.play();p&&p.catch&&p.catch(()=>{})});
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-let AC;function sfx(k){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const n=AC.currentTime;(k=='ok'?[523,659,784,1047]:[392,523,659]).forEach((h,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='triangle';o.frequency.value=h;g.gain.setValueAtTime(.001,n+i*.09);g.gain.exponentialRampToValueAtTime(.07,n+i*.09+.02);g.gain.exponentialRampToValueAtTime(.001,n+i*.09+.2);o.connect(g).connect(AC.destination);o.start(n+i*.09);o.stop(n+i*.09+.25)})}catch(e){}}
+let AC;function sfx(k){if(!window.__pincheAudio)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const n=AC.currentTime;(k=='ok'?[523,659,784,1047]:[392,523,659]).forEach((h,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='triangle';o.frequency.value=h;g.gain.setValueAtTime(.001,n+i*.09);g.gain.exponentialRampToValueAtTime(.07,n+i*.09+.02);g.gain.exponentialRampToValueAtTime(.001,n+i*.09+.2);o.connect(g).connect(AC.destination);o.start(n+i*.09);o.stop(n+i*.09+.25)})}catch(e){}}
 const fx=$('#fx'),fc=fx.getContext('2d'),COL=['#efc928','#d9a3c8','#2b3a8c','#f3e6d3','#571f20'];let P=[];
 function size(){fx.width=innerWidth;fx.height=innerHeight}size();addEventListener('resize',size);
 function boom(x,y){for(let i=0;i<22;i++)P.push({x,y,vx:(Math.random()-.5)*9,vy:-Math.random()*9-2,c:COL[i%5],r:Math.random()*4,l:60})}
@@ -445,7 +460,7 @@ try{muted=localStorage.getItem('pinche_mute')==='1'}catch(e){}
 
 /* ---- sonido sencillo ---- */
 let GA;
-function beep(f,d,type,v,slide){if(muted)return;try{GA=GA||new (window.AudioContext||window.webkitAudioContext)();const n=GA.currentTime,o=GA.createOscillator(),g=GA.createGain();o.type=type||'square';o.frequency.setValueAtTime(f,n);if(slide)o.frequency.exponentialRampToValueAtTime(slide,n+d);g.gain.setValueAtTime(v||.05,n);g.gain.exponentialRampToValueAtTime(.0008,n+d);o.connect(g).connect(GA.destination);o.start(n);o.stop(n+d+.02)}catch(e){}}
+function beep(f,d,type,v,slide){if(muted||!active||!window.__pincheAudio)return;try{GA=GA||new (window.AudioContext||window.webkitAudioContext)();const n=GA.currentTime,o=GA.createOscillator(),g=GA.createGain();o.type=type||'square';o.frequency.setValueAtTime(f,n);if(slide)o.frequency.exponentialRampToValueAtTime(slide,n+d);g.gain.setValueAtTime(v||.05,n);g.gain.exponentialRampToValueAtTime(.0008,n+d);o.connect(g).connect(GA.destination);o.start(n);o.stop(n+d+.02)}catch(e){}}
 const sJump=()=>beep(300,.14,'square',.035,620),sTaco=()=>{beep(784,.08,'triangle',.07);setTimeout(()=>beep(1175,.12,'triangle',.07),70)},sHit=()=>beep(160,.35,'sawtooth',.07,40),sSign=()=>[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.16,'triangle',.07),i*90));
 
 /* ---- estado ---- */
@@ -694,9 +709,11 @@ function fit(){dims();cv.style.aspectRatio=W+'/'+H;const r=cv.getBoundingClientR
 
 /* ---- entrada / salida de la vista ---- */
 const Game={
- enter(){loadAll();fetchBoard();active=true;fit();if(mode=='run'){mode='pause';setOverlay('pause')}else{mode='ready';reset();setOverlay('ready')}hud();last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)},
- leave(){if(!active)return;active=false;cancelAnimationFrame(raf);if(mode=='run'){submitScore(Math.floor(S.points),S.tacos);total+=Math.floor(S.points);store.set('pinche_total',total);if(Math.floor(S.points)>best){best=Math.floor(S.points);store.set('pinche_best',best)}mode='ready';reset()}}
+ enter(){loadAll();fetchBoard();active=true;window.__pincheAudio=true;fit();if(mode=='run'){mode='pause';setOverlay('pause')}else{mode='ready';reset();setOverlay('ready')}hud();last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)},
+ leave(){window.__pincheAudio=false;try{GA&&GA.state==='running'&&GA.suspend();AC&&AC.state==='running'&&AC.suspend()}catch(e){}if(!active)return;active=false;cancelAnimationFrame(raf);if(mode=='run'){submitScore(Math.floor(S.points),S.tacos);total+=Math.floor(S.points);store.set('pinche_total',total);if(Math.floor(S.points)>best){best=Math.floor(S.points);store.set('pinche_best',best)}mode='ready';reset()}}
 };
+Game.audioStart=function(){window.__pincheAudio=true;try{GA=GA||new (window.AudioContext||window.webkitAudioContext)();if(GA.state==='suspended')GA.resume();if(typeof AC!=='undefined'&&AC&&AC.state==='suspended')AC.resume()}catch(e){}
+ if(!muted){active=true;sSign();active=false}};
 window.PincheGame=Game;
 
 /* ---- reiniciar score y jugadores ---- */
