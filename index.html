@@ -3,7 +3,7 @@
 <link rel="apple-touch-icon" href="https://elpinche.grupobuenrollo.com/files/images/Otros/Logo_El_Pinche.png">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bk:#14275a;--ink:#10153a;--sky:#62a3dc;--mr:#2d2e5e;--nv:#0B2A84;--y:#efc928;--pk:#d9a3c8;--cr:#f3e6d3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bk:#14275a;--ink:#10153a;--sky:#62a3dc;--mr:#0B2A84;--nv:#0B2A84;--y:#efc928;--pk:#d9a3c8;--cr:#f3e6d3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box;margin:0}
 body{background:var(--bk);color:var(--cr);font:500 15px/1.45 Montserrat,system-ui,sans-serif;overflow-x:hidden;padding-top:36px}
 .d{font:italic 400 2rem/1 Anton,Impact,'Arial Narrow',sans-serif;text-transform:uppercase;color:var(--y);text-shadow:3px 3px 0 var(--nv)}
@@ -332,7 +332,7 @@ input::placeholder{color:rgba(243,230,211,.78)}
  <div id="gstage" class="gstage"><canvas id="gc" width="640" height="400" aria-label="Juego: maneja el vocho, salta obstáculos y junta tacos"></canvas>
   <div id="govr" class="govr"><div class="gbox"><div id="govt" class="d"></div><p id="govp"></p><div id="gnamebox" class="gnb"><input id="gname" type="text" maxlength="12" autocomplete="nickname" placeholder="Tu nombre" aria-label="Tu nombre para el ranking"><small id="gnerr" hidden>Escribe tu nombre (mínimo 2 letras) para jugar</small></div><button id="govb" class="btn" type="button">¡Arranca!</button></div></div></div>
  <p class="ghint">Toca para saltar · espacio / ↑ en teclado</p>
- <div class="grank"><h3 class="d">🏆 Ranking <small id="grn"></small></h3><ol id="grl"></ol><p class="gnote">Se guarda tu mejor puntaje por jugador. ¡Reta a tus amigos!</p><button id="greset" class="greset" type="button">↺ Reiniciar score y jugadores</button></div>
+ <div class="grank"><h3 class="d">🏆 Ranking <small id="grn"></small></h3><ol id="grl"></ol><p class="gnote">Se guarda el mejor puntaje por jugador. ¡Reta a tus amigos!</p><button id="greset" class="greset" type="button">↺ Reiniciar score y jugadores</button></div>
 </section>
 <section class="v pad dec" id="reservas"><i class="px" data-sy=".12" style="--w:clamp(70px,14vw,120px);right:4%;top:6px;opacity:.5"><b class="i-cloud"></b></i><i class="px" data-sy=".24" style="--w:18px;right:30%;top:70px"><b class="i-spark"></b></i><h2 class="d">Reservar mesa</h2><div class="stp" id="stp"><i></i><i></i><i></i><i></i></div><div id="rb"></div></section>
 
@@ -451,7 +451,7 @@ kf.style.width=KN.w*k+'px';kf.style.transform=`translate(${(X-30)/100*W+dx*s}px,
 let W=640,H=400,GY=332;
 const $id=i=>document.getElementById(i);
 const cv=$id('gc'),cx=cv.getContext('2d'),sec=$id('juego');
-const C={bk:'#0c0807',mr:'#2d2e5e',dk:'#1f2149',nv:'#0B2A84',nv2:'#1d2766',y:'#efc928',pk:'#d9a3c8',cr:'#f3e6d3',rd:'#c43b3b',gr:'#2f8f4e'};
+const C={bk:'#0c0807',mr:'#0B2A84',dk:'#1f2149',nv:'#0B2A84',nv2:'#1d2766',y:'#efc928',pk:'#d9a3c8',cr:'#f3e6d3',rd:'#c43b3b',gr:'#2f8f4e'};
 const bgUrl=sel=>{const e=document.querySelector(sel);if(!e)return null;const m=getComputedStyle(e).backgroundImage.match(/url\(["']?(.*?)["']?\)$/);return m?m[1]:null};
 const loadImg=src=>{const i=new Image();if(src)i.src=src;return i};
 let IM={};
