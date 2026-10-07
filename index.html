@@ -3,7 +3,7 @@
 <link rel="apple-touch-icon" href="https://elpinche.grupobuenrollo.com/files/images/Otros/Logo_El_Pinche.png">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bk:#14275a;--ink:#10153a;--sky:#62a3dc;--mr:#2d2e5e;--nv:#2b3a8c;--y:#efc928;--pk:#d9a3c8;--cr:#f3e6d3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bk:#14275a;--ink:#10153a;--sky:#62a3dc;--mr:#2d2e5e;--nv:#0B2A84;--y:#efc928;--pk:#d9a3c8;--cr:#f3e6d3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box;margin:0}
 body{background:var(--bk);color:var(--cr);font:500 15px/1.45 Montserrat,system-ui,sans-serif;overflow-x:hidden;padding-top:36px}
 .d{font:italic 400 2rem/1 Anton,Impact,'Arial Narrow',sans-serif;text-transform:uppercase;color:var(--y);text-shadow:3px 3px 0 var(--nv)}
@@ -370,7 +370,7 @@ document.querySelectorAll('[data-link]').forEach(a=>{const u=LINKS[a.dataset.lin
 document.querySelectorAll('.bn video').forEach(v=>{v.muted=true;v.defaultMuted=true;const p=v.play();p&&p.catch&&p.catch(()=>{})});
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let AC;function sfx(k){if(!window.__pincheAudio)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const n=AC.currentTime;(k=='ok'?[523,659,784,1047]:[392,523,659]).forEach((h,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='triangle';o.frequency.value=h;g.gain.setValueAtTime(.001,n+i*.09);g.gain.exponentialRampToValueAtTime(.07,n+i*.09+.02);g.gain.exponentialRampToValueAtTime(.001,n+i*.09+.2);o.connect(g).connect(AC.destination);o.start(n+i*.09);o.stop(n+i*.09+.25)})}catch(e){}}
-const fx=$('#fx'),fc=fx.getContext('2d'),COL=['#efc928','#d9a3c8','#2b3a8c','#f3e6d3','#571f20'];let P=[];
+const fx=$('#fx'),fc=fx.getContext('2d'),COL=['#efc928','#d9a3c8','#0B2A84','#f3e6d3','#571f20'];let P=[];
 function size(){fx.width=innerWidth;fx.height=innerHeight}size();addEventListener('resize',size);
 function boom(x,y){for(let i=0;i<22;i++)P.push({x,y,vx:(Math.random()-.5)*9,vy:-Math.random()*9-2,c:COL[i%5],r:Math.random()*4,l:60})}
 (function loop(){fc.clearRect(0,0,fx.width,fx.height);P=P.filter(p=>p.l-->0);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;fc.globalAlpha=p.l/60;fc.fillStyle=p.c;fc.fillRect(p.x,p.y,p.r+3,p.r+5)});requestAnimationFrame(loop)})();
@@ -451,7 +451,7 @@ kf.style.width=KN.w*k+'px';kf.style.transform=`translate(${(X-30)/100*W+dx*s}px,
 let W=640,H=400,GY=332;
 const $id=i=>document.getElementById(i);
 const cv=$id('gc'),cx=cv.getContext('2d'),sec=$id('juego');
-const C={bk:'#0c0807',mr:'#2d2e5e',dk:'#1f2149',nv:'#2b3a8c',nv2:'#1d2766',y:'#efc928',pk:'#d9a3c8',cr:'#f3e6d3',rd:'#c43b3b',gr:'#2f8f4e'};
+const C={bk:'#0c0807',mr:'#2d2e5e',dk:'#1f2149',nv:'#0B2A84',nv2:'#1d2766',y:'#efc928',pk:'#d9a3c8',cr:'#f3e6d3',rd:'#c43b3b',gr:'#2f8f4e'};
 const bgUrl=sel=>{const e=document.querySelector(sel);if(!e)return null;const m=getComputedStyle(e).backgroundImage.match(/url\(["']?(.*?)["']?\)$/);return m?m[1]:null};
 const loadImg=src=>{const i=new Image();if(src)i.src=src;return i};
 let IM={};
